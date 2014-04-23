@@ -10,3 +10,8 @@ $ git clone https://github.com/ipython/ipython-ansible-jenkins.git
 $ git submodule init
 $ git submodule update
 ```
+## Installation
+
+```
+ansible-playbook -i hosts site.yml
+```
