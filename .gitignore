@@ -1,3 +1,10 @@
+# Ansible secrets, keys, etc.
+*.crt
+*.csr
+*.key
+
+credentials.yml
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

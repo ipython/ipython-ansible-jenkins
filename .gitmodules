@@ -1,0 +1,3 @@
+[submodule "roles/jenkins"]
+	path = roles/jenkins
+	url = https://github.com/ICTO/ansible-jenkins.git

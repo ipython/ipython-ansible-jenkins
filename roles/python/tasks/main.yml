@@ -1,0 +1,25 @@
+# Install Python, pip, and virtualenv.
+---
+- name: install python from apt
+  apt: pkg={{ item }} state=installed
+  sudo: yes
+  with_items:
+  - python-dev
+  - cowsay
+
+- name: install setuptools
+  shell: wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | python2.7
+         creates=/usr/local/bin/easy_install
+  sudo: yes
+
+- name: install pip
+  shell: curl --show-error --retry 5 https://raw.github.com/pypa/pip/master/contrib/get-pip.py | python2.7
+         creates=/usr/local/bin/pip
+  sudo: yes
+
+- name: install global packages
+  pip: name={{ item }} state=latest
+  sudo: yes
+  with_items:
+  - virtualenv
+  - ansible
