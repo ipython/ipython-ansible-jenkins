@@ -1,0 +1,29 @@
+---
+- name: create a directory for nave
+  file: path={{ jenkins_home }}/.nave state=directory
+        owner={{ jenkins_username }} mode=0755
+  sudo: true
+
+- name: download nave
+  get_url: dest={{ jenkins_home }}/.nave/nave
+           url=http://github.com/isaacs/nave/raw/master/nave.sh
+           owner={{ jenkins_username }} mode=0755
+  sudo: true
+
+- name: add nave to the PATH
+  lineinfile: dest={{ jenkins_home }}/.bashrc
+              line="export PATH=\${PATH}:\${HOME}/.nave"
+  sudo: true
+
+- name: install the latest stable node
+  command: "{{ jenkins_home }}/.nave/nave install stable"
+  sudo: true
+  sudo_user: "{{ jenkins_username }}"
+
+- name: install global npm packages
+  npm: name={{ item }} state=latest global=yes
+  sudo: true
+  with_items:
+  - bower
+  - grunt-cli
+  - coffee-script

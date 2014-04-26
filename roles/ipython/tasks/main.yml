@@ -1,0 +1,9 @@
+# Install Python, pip, and virtualenv.
+---
+- name: install ipython system package dependencies
+  apt: pkg={{ item }} state=installed
+  sudo: yes
+  with_items:
+  - pandoc
+  - libzmq3-dev
+

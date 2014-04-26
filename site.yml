@@ -1,0 +1,31 @@
+---
+- hosts: all
+  vars:
+    plugins:
+    - ldap
+    - gravatar
+    - simple-theme-plugin
+    - ansicolor
+    - git
+    - github
+    - ghprb
+    - instant-messaging
+    - ircbot
+    - hipchat
+    - cobertura
+    - greenballs
+    - envinject
+    hostname: jenkins.ipython.org
+    server_credential_root: /etc/ssl/private
+    server_cert: jenkins.ipython.org.crt
+    server_key: jenkins.ipython.org.key
+    jenkins_username: jenkins
+    jenkins_home: /var/lib/jenkins
+    ansible_version: 1.4.5
+  vars_files:
+    - credentials.yml
+  roles:
+  - jenkins
+  - nginx
+  - python
+  - node

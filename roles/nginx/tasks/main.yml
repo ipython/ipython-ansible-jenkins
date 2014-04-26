@@ -1,0 +1,39 @@
+---
+- name: add the nginx ppa
+  apt_repository: repo=ppa:nginx/stable state=present update_cache=yes
+  sudo: yes
+
+- name: install nginx
+  apt: pkg=nginx state=installed
+  sudo: yes
+
+- name: remove the default nginx site
+  file: path={{ item }} state=absent
+  sudo: yes
+  with_items:
+  - /etc/nginx/sites-available/default
+  - /etc/nginx/sites-enabled/default
+
+- name: install ssl certificates
+  copy: src={{ item }} dest={{ server_credential_root }}/{{ item }}
+  sudo: yes
+  with_items:
+  - "{{ server_cert }}"
+  - "{{ server_key }}"
+  tags:
+  - certs
+
+- name: nginx site for jenkins
+  template: src=jenkins-nginx.j2 dest=/etc/nginx/sites-available/jenkins
+  sudo: yes
+  notify: restart nginx
+
+- name: enable the nginx jenkins site
+  file: src=/etc/nginx/sites-available/jenkins dest=/etc/nginx/sites-enabled/jenkins
+        state=link
+  sudo: yes
+  notify: restart nginx
+
+- name: start nginx
+  service: name=nginx state=started
+  sudo: yes
