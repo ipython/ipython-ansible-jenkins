@@ -1,4 +1,11 @@
 ---
+- name: install node from apt
+  apt: pkg={{ item }} state=installed
+  sudo: yes
+  with_items:
+  - nodejs
+  - npm
+  
 - name: create a directory for nave
   file: path={{ jenkins_home }}/.nave state=directory
         owner={{ jenkins_username }} mode=0755
