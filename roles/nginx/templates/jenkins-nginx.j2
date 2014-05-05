@@ -3,6 +3,13 @@ upstream jenkins {
 }
 
 server {
+    listen 80;
+    server_name {{ hostname }};
+    ## Redirect http to https ##
+    rewrite ^ https://$server_name$request_uri? permanent;
+}
+
+server {
     listen 443 ssl;
     listen [::]:443 default ipv6only=on ssl;
     server_name {{ hostname }};
