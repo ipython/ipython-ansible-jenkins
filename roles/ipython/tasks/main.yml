@@ -6,4 +6,21 @@
   with_items:
   - pandoc
   - libzmq3-dev
-
+  - python-zmq
+  - python3-zmq
+  - python-numpy
+  - python3-numpy
+  - python-matplotlib
+  - python3-matplotlib
+  - python-tornado
+  - python3-tornado
+  - python-jinja2
+  - python3-jinja2
+  - python-pygments
+  - python3-pygments
+  - cython
+  - cython3
+  - python-qt4
+  - python3-pyqt4
+  - python-nose
+  - python3-nose
