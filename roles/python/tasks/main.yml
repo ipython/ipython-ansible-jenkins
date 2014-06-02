@@ -9,6 +9,8 @@
   - python-pip
   - python3-pip
   - cowsay
+  - unzip
+  - zip
 
 - name: install global packages
   pip: name={{ item }} state=latest
