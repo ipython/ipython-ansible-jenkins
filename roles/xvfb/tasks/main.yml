@@ -1,0 +1,7 @@
+# Install XVFB
+---
+- name: install xvfb from apt
+  apt: pkg={{ item }} state=installed
+  sudo: yes
+  with_items:
+  - xvfb
