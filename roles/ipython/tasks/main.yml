@@ -24,3 +24,6 @@
   - python3-pyqt4
   - python-nose
   - python3-nose
+  - python-pymongo
+  - python3-pymongo
+  - python-rpy2
