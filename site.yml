@@ -16,10 +16,10 @@
     - greenballs
     - envinject
     - shiningpanda
-    hostname: jenkins.ipython.org
+    hostname: jenkins.jupyter.org
     server_credential_root: /etc/ssl/private
-    server_cert: jenkins.ipython.org.crt
-    server_key: jenkins.ipython.org.key
+    server_cert: jupyter.org.crt
+    server_key: jupyter.org.key
     jenkins_username: jenkins
     jenkins_home: /var/lib/jenkins
     ansible_version: 1.4.5

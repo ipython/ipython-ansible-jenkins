@@ -1,2 +1,2 @@
 [jenkins]
-jenkins.ipython.org     ansible_connection=ssh    ansible_ssh_user=root
+jenkins.jupyter.org     ansible_connection=ssh    ansible_ssh_user=root
