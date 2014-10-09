@@ -16,6 +16,7 @@
     - greenballs
     - envinject
     - shiningpanda
+    - notification
     hostname: jenkins.jupyter.org
     server_credential_root: /etc/ssl/private
     server_cert: jupyter.org.crt
