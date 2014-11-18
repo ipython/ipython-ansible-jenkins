@@ -34,4 +34,4 @@
   - bower
   - grunt-cli
   - coffee-script
-  - less@1.7.4
+  - less
