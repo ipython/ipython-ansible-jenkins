@@ -4,7 +4,6 @@
   sudo: yes
   with_items:
   - nodejs
-  - npm
   
 - name: create a directory for nave
   file: path={{ jenkins_home }}/.nave state=directory
