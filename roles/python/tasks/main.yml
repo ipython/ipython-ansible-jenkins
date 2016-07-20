@@ -11,6 +11,7 @@
   - cowsay
   - unzip
   - zip
+  - libffi-dev
 
 - name: install global packages
   pip: name={{ item }} state=latest
